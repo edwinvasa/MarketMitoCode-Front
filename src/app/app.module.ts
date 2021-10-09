@@ -10,13 +10,17 @@ import { VentaComponent } from './pages/venta/venta.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { PersonaEdicionComponent } from './pages/persona/persona-edicion/persona-edicion.component';
+import { ProductoEdicionComponent } from './pages/producto/producto-edicion/producto-edicion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
     PersonaComponent,
-    VentaComponent
+    VentaComponent,
+    PersonaEdicionComponent,
+    ProductoEdicionComponent
   ],
   imports: [
     BrowserModule,
