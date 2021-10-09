@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { switchMap } from 'rxjs/operators';
 import { Persona } from 'src/app/_model/Persona';
 import { PersonaService } from 'src/app/_service/persona.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-persona',
@@ -13,6 +15,8 @@ import { PersonaService } from 'src/app/_service/persona.service';
   styleUrls: ['./persona.component.css']
 })
 export class PersonaComponent implements OnInit {
+
+  seleccion: boolean = false;
 
   dataSource: MatTableDataSource<Persona>;
   displayedColumns: string[] = ['idPersona', 'nombres', 'apellidos', 'acciones'];
@@ -22,8 +26,24 @@ export class PersonaComponent implements OnInit {
 
   constructor(
     private personaService: PersonaService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) { }
+
+  openDialog(idProducto: number): void {
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      width: '250px',
+      data: {id: idProducto, seleccion: this.seleccion}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.seleccion = result;
+      if(this.seleccion){
+        this.eliminar(idProducto);
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.personaService.listar().subscribe(data => {

@@ -29,7 +29,7 @@
             <button mat-button color="primary" [routerLink]="['edicion', element.idProducto]">
                 <mat-icon>ballot</mat-icon>
             </button>
-            <button mat-button color="primary" (click)="eliminar(element.idProducto)">
+            <button mat-button color="primary" (click)="openDialog(element.idProducto)">
                 <mat-icon>delete</mat-icon>
             </button>
         </td>

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { PersonaEdicionComponent } from './pages/persona/persona-edicion/persona-edicion.component';
 import { ProductoEdicionComponent } from './pages/producto/producto-edicion/producto-edicion.component';
+import { DialogConfirmComponent } from './pages/dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductoEdicionComponent } from './pages/producto/producto-edicion/prod
     PersonaComponent,
     VentaComponent,
     PersonaEdicionComponent,
-    ProductoEdicionComponent
+    ProductoEdicionComponent,
+    DialogConfirmComponent
   ],
   imports: [
     BrowserModule,
